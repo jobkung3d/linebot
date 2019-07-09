@@ -17,9 +17,16 @@ app.use(bodyParser.json())
 app.post('/webhook', (req, res) => {
     let reply_token = req.body.events[0].replyToken
     let msg = req.body.events[0].message.text
-    aimlInterpreter.findAnswerInLoadedAIMLFiles(msg, (answer, wildCardArray, input) => {
-        reply(reply_token, answer)
-    })
+    //aimlInterpreter.findAnswerInLoadedAIMLFiles(msg, (answer, wildCardArray, input) => {
+        
+    //})
+    let answer = '';
+    if(msg == "จ๊อบ"){
+        answer = 'สุดหล่อ'
+    }else if(msg == "ลูกน้้ำ"){
+        answer = 'สุดสวย'
+    }
+    reply(reply_token, answer)
     res.sendStatus(200)
 })
 
