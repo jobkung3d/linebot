@@ -18,13 +18,18 @@ app.post('/webhook', (req, res) => {
     let reply_token = req.body.events[0].replyToken
     let msg = req.body.events[0].message.text
     //aimlInterpreter.findAnswerInLoadedAIMLFiles(msg, (answer, wildCardArray, input) => {
-        
+        //reply(reply_token, answer)
     //})
+
     let answer = '';
     if(msg == "จ๊อบ"){
-        answer = 'สุดหล่อ'
+        let items = ['สุดหล่อ','คนนี้เด็ดใช่ย่อย','มุขเสี่ยวขอให้บอก','โห...คนจริงอ่ะ บอกเลย','น่ารักใช่ไหมล่ะ']
+        let item = items[Math.floor(Math.random()*items.length)];
+        answer = item
     }else if(msg == "ลูกน้้ำ"){
-        answer = 'สุดสวย'
+        let items = ['สุดสวย','ใช่นางฟ้าหรือเปล่า','น่ารักที่สุด','นี่คนหรือนางฟ้า','รักที่สุด']
+        let item = items[Math.floor(Math.random()*items.length)];
+        answer = item
     }
     reply(reply_token, answer)
     res.sendStatus(200)
