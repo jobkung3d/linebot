@@ -26,11 +26,14 @@ app.post('/webhook', (req, res) => {
         let items = ['สุดหล่อ','คนนี้เด็ดใช่ย่อย','มุขเสี่ยวขอให้บอก','โห...คนจริงอ่ะ บอกเลย','น่ารักใช่ไหมล่ะ']
         let item = items[Math.floor(Math.random()*items.length)];
         answer = item
-    }else if(msg == "ลูกน้้ำ"){
+    }else if(msg == "ลูกน้ำ"){
         let items = ['สุดสวย','ใช่นางฟ้าหรือเปล่า','น่ารักที่สุด','นี่คนหรือนางฟ้า','รักที่สุด']
         let item = items[Math.floor(Math.random()*items.length)];
         answer = item
+    }else if(msg == "-help"){
+        answer = 'คำที่ใช้ได้ จ๊อบ กับ ลูกน้ำ'
     }
+    
     reply(reply_token, answer)
     res.sendStatus(200)
 })
